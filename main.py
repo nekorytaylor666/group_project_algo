@@ -1,5 +1,6 @@
 from models import Contact
 from storage import read_contacts_from_csv, write_contact_to_csv
+from utils import quick_sort
 
 
 def main():
@@ -34,15 +35,8 @@ def main():
            # Your code about how to search a record by name #
 
         elif ans == '4':
-            print("display records in sorted order:")
-            # Your code about how to display records in sorted order#
-
             contacts = read_contacts_from_csv()
-
-            # sort contact with quick sort
             quick_sort(contacts, 0, len(contacts) - 1)
-
-            contacts.sort()
             for contact in contacts:
                 print(contact)
 

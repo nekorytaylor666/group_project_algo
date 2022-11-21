@@ -28,12 +28,3 @@ def partition(contacts, low, high):
 
     contacts[i + 1], contacts[high] = contacts[high], contacts[i + 1]
     return (i + 1)
-
-
-# sort contacts and display them
-contacts = read_contacts_from_csv()
-
-quick_sort(contacts, 0, len(contacts) - 1)
-# print contacts
-for contact in contacts:
-    print(contact)
