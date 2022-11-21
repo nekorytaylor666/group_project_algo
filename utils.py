@@ -1,6 +1,3 @@
-from storage import read_contacts_from_csv
-
-
 def quick_sort(contacts, low, high):
     if low < high:
         # pi is partitioning index, arr[p] is now
