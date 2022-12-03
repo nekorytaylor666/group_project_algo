@@ -1,9 +1,6 @@
 from models import Contact
-from renderer import ClientUI
-from storage import delete_contact_from_csv, read_contacts_from_csv, write_contact_to_csv
-from utils import quick_sort, search
-import os
 from storage import insert, delete
+
 
 def main():
     ans = True
@@ -42,15 +39,13 @@ def main():
 
             print('Deleted')
             # Your code about how to delete existing records #
+
         elif ans == '3':
-            search()
-        
+            print("search a record:")
+           # Your code about how to search a record by name #
+
         elif ans == '4':
-            contacts = read_contacts_from_csv()
-            quick_sort(contacts, 0, len(contacts) - 1)
-            
-            ClientUI().render_contact_table(contacts)
-            
+            print("search a record:")
 
         elif ans == '5':
             break

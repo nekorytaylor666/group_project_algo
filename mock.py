@@ -1,5 +1,3 @@
-# generate 100 contacts
-
 from models import Contact
 from storage import write_contact_to_csv
 import random

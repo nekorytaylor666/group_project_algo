@@ -15,7 +15,7 @@ def write_contact_to_csv(contact):
 
 def read_contacts_from_csv():
     contacts = []
-    with open('phone_dictionary.csv', mode='r') as csv_file:
+    with open('./phone_dictionary.csv', mode='r') as csv_file:
         fieldnames = ['name', 'address', 'phone']
         reader = csv.DictReader(csv_file, fieldnames=fieldnames)
         # skip header
@@ -40,3 +40,24 @@ def delete_contact_from_csv(contact):
         for contact in contacts:
             writer.writerow(
                 {'name': contact.name, 'address': contact.address, 'phone': contact.phone})
+
+
+
+def insert(contact):
+    with open('phone_dictionary.csv', 'a', newline='') as f:
+        writer = csv.DictWriter(f, ['name', 'address', 'phone'])
+        writer.writerow(
+            {'name': contact.name, 'address': contact.address, 'phone': contact.phone})
+
+def delete(dele):
+    list=[]
+    with open('phone_dictionary.csv', newline='') as csvFile:
+        reader = csv.DictReader(csvFile, ['name', 'address', 'phone'])
+        for row in reader:
+            if Contact(row['name'], row['address'], row['phone']) != dele:
+                list.append(row)
+        #print(list)
+
+        with open('phone_dictionary.csv', 'w', newline='') as csvFile:
+            writer = csv.DictWriter(csvFile, ['name', 'address', 'phone'])
+            writer.writerows(list)

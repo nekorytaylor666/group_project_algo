@@ -9,7 +9,7 @@ class Contact:
         self.phone = phone
 
     def __str__(self):
-        return f'{self.name}, {self.address}, {self.phone}'
+        return f'{self.name}\t\t\t{self.address}\t\t\t{self.phone}'
 
     def __repr__(self):
         return f'{self.name} {self.address} {self.phone}'
