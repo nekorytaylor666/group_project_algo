@@ -1,10 +1,3 @@
-# create class renderer
-# create method render_menu
-# create method render_contact_table
-# create method render_contact
-# create method render_contact_form
-
-# create class renderer
 import os
 class bcolors:
     HEADER = '\033[95m'
@@ -29,13 +22,14 @@ class ClientUI:
         5.Quit the system
         """)
 
-    # create method render_contact_table
     def render_contact_table(self, contacts):
-        # display contact table in beatiful table
-        print(f"{bcolors.OKGREEN}{'Name':<50}|{'Address':<50}|{'Phone':<50}{bcolors.ENDC}")
-        print(f"{'-' * 50}|{'-' * 50}|{'-' * 50}")
+        self.print_header()
         for contact in contacts:
             self.render_contact(contact)
+
+    def print_header(self):
+        print(f"{bcolors.OKGREEN}{'Name':<50}|{'Address':<50}|{'Phone':<50}{bcolors.ENDC}")
+        print(f"{'-' * 50}|{'-' * 50}|{'-' * 50}")
     
     # create method that will render contact table with width of symbols and fill with spaces if needed
     def render_contact(self, contact):
@@ -48,13 +42,11 @@ class ClientUI:
 
     def render_search_result_table(self, contacts, user_input):
         os.system('clear')
-        print(f"{bcolors.OKGREEN}{'Name':<50}{'Address':<50}{'Phone':<50}{bcolors.ENDC}")
-        print(f"{'-' * 50}|{'-' * 50}|{'-' * 50}")
+        self.print_header()
         for contact in contacts:
-            # print contact if contact user_input contains user input
             if user_input in contact.name:
                 self.render_highlighted_contact(contact, user_input) 
-            
+     
     def render_string(self, string, match):
         tmp = string.split(match)
         result = ''
@@ -64,6 +56,7 @@ class ClientUI:
                 result += tmp[i]
             else:
                 result += tmp[i] + bcolors.OKGREEN + match + bcolors.ENDC
+                # add extra width to result string to make it fit in cell since we added color to it and it will take more space
                 extra_width += len(bcolors.OKGREEN) + len(bcolors.ENDC)
                 
         

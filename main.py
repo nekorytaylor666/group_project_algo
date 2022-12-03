@@ -1,7 +1,8 @@
+from core import search
 from models import Contact
 from renderer import ClientUI
 from storage import delete_contact_from_csv, read_contacts_from_csv, write_contact_to_csv
-from utils import quick_sort, search
+from utils import quick_sort 
 import os
 from storage import insert, delete
 
