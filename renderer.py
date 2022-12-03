@@ -12,29 +12,11 @@ class bcolors:
 
 class ClientUI:
     cell_width = 50
-    def render_menu(self):
-        print("""
-        ******* Phone Directory Management System *******
-        1.Insert new records
-        2.Delete existing records
-        3.Search a record by name
-        4.Display records in sorted order
-        5.Quit the system
-        """)
-
-    def render_contact_table(self, contacts):
-        self.print_header()
-        for contact in contacts:
-            self.render_contact(contact)
 
     def print_header(self):
         print(f"{bcolors.OKGREEN}{'Name':<50}|{'Address':<50}|{'Phone':<50}{bcolors.ENDC}")
         print(f"{'-' * 50}|{'-' * 50}|{'-' * 50}")
-    
-    # create method that will render contact table with width of symbols and fill with spaces if needed
-    def render_contact(self, contact):
-        print(f"{contact.name:<50}|{contact.address:<50}|{contact.phone:<50}")
-
+   
     def render_highlighted_contact(self, contact, match):
         matched_name = self.render_string(contact.name, match)
         print(f"{matched_name}|{contact.address:<50}|{contact.phone:<50}")
@@ -61,3 +43,11 @@ class ClientUI:
                 
         
         return '{0: <{width}}'.format(result, width=self.cell_width + extra_width)
+
+    def render_contact_table(self, contacts):
+        self.print_header()
+        for contact in contacts:
+            self.render_contact(contact)
+
+    def render_contact(self, contact):
+        print(f"{contact.name:<50}|{contact.address:<50}|{contact.phone:<50}")
